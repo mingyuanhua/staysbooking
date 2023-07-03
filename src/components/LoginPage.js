@@ -2,8 +2,6 @@ import React from "react";
 import { Form, Button, Input, Space, Checkbox, message } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { login, register } from "../utils";
-import App from "../App";
-
 
 class LoginPage extends React.Component {
   formRef = React.createRef();

@@ -2,6 +2,7 @@ import { Button, Dropdown, Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
 import LoginPage from './components/LoginPage';
+import HostHomePage from './components/HostHomePage';
 
 const { Header, Content } = Layout;
 
@@ -49,7 +50,7 @@ class App extends React.Component {
       return <LoginPage handleLoginSuccess={this.handleLoginSuccess} />
     }
     if (this.state.asHost) {
-      return <div>host home page</div>
+      return <HostHomePage />
     }
     return <div>guest home page</div>
   }
