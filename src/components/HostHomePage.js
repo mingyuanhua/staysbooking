@@ -1,4 +1,4 @@
-import { message, Tabs, List, Card, Image, Carousel } from "antd";
+import { message, Tabs, List, Card, Image, Carousel, Button, Modal } from "antd";
 import { LeftCircleFilled, RightCircleFilled } from "@ant-design/icons";
 import Text from "antd/lib/typography/Text";
 import React from "react";
@@ -8,10 +8,37 @@ import UploadStay from './UploadStay';
 const { TabPane } = Tabs;
 // const TabPane = Tabs.TabPane;
 
+
+// Modal 组件 https://4x.ant.design/components/modal/ 点按钮 弹弹窗
+// 为什么要先有个Button？因为Modal弹窗不是永远弹出来的，需要有个东西触发trigger，不一定是Button，但Button最为常见
+// Modal弹出不弹出是由哪个props控制的？open={isModalOpen} props open和isModalOpen联系在一起 isModalOpen是一个React的state
 export class StayDetailInfoButton extends React.Component {
-    render() {
-        return <></>;
-    }
+  state = {
+    modalVisible: false,
+  };
+
+  openModal = () => {
+    this.setState({
+      modalVisible: true,
+    })
+  };
+
+  handleCancel = () => {
+    this.setState({
+      modalVisible: false,
+    });
+  };
+
+  render() {
+      return (
+        <>
+          <Button onClick={this.openModal}>Stays Extra</Button>
+          <Modal open={this.state.modalVisible} onCancel={this.handleCancel}>
+
+          </Modal>
+        </>
+      );
+  }
 }
 
 // 有loading state代表该组件一定会调API
@@ -78,7 +105,7 @@ class MyStays extends React.Component {
                   </div>
                 }
                 actions={[]}
-                extra={null}
+                extra={StayDetailInfoButton}
               >
                   <Carousel
                     dots={false}

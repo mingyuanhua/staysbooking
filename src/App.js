@@ -46,6 +46,7 @@ class App extends React.Component {
   };
 
   renderContent = () => {
+    // 如果token过期了 需要把this.state.authed设为false 还要删除localStorage.removeItem("authToken");
     if (!this.state.authed) {
       return <LoginPage handleLoginSuccess={this.handleLoginSuccess} />
     }
