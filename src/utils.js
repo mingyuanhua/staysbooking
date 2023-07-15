@@ -1,5 +1,5 @@
 // Communication with backends
-const domain = "http://localhost:8080";
+const domain = "https://celtic-sunlight-390422.wn.r.appspot.com";
 
 export const login = (credential, asHost) => {
   const loginUrl = `${domain}/authenticate/${asHost ? "host" : "guest"}`;
